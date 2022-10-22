@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/lhzamperlini/App-Enquete/issues"
   },
-  "homepage": "https://github.com/lhzamperlini/App-Enquete#readme"
+  "homepage": "https://github.com/lhzamperlini/App-Enquete#readme",
+  "dependencies": {
+    "git-commit-msg-linter": "^4.2.1"
+  }
 }
