@@ -1,8 +1,6 @@
 import { SignUpController } from './signup'
-import { MissingParamError, ServerError, InvalidParamError } from '../errors'
-import { EmailValidator } from '../protocols/email-validator'
-import { AddAccount, AddAccountModel } from '../../domain/usecases/add-account'
-import { AccountModel } from '../../domain/models/accounts'
+import { MissingParamError, ServerError, InvalidParamError } from '../../errors'
+import { EmailValidator, AddAccount, AddAccountModel, AccountModel } from '../signup/signup-protocols'
 
 interface SutTypes {
   sut: SignUpController
@@ -182,14 +180,14 @@ describe('SignUp Controller', () => {
 })
 
 describe('SignUp Controller', () => {
-  test('Should call AddAccount with correct values ', () => {
+  test('Should call AddAccount with correct values', () => {
     const { sut, addAccountStub } = makeSut()
     const addSpy = jest.spyOn(addAccountStub, 'add')
     const httpRequest = {
       body: {
         name: 'any_name',
-        email: 'any_mail@mail.com',
-        password: 'any_Password',
+        email: 'any_email@mail.com',
+        password: 'any_password',
         passwordConfirmation: 'any_password'
       }
     }
